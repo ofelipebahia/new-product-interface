@@ -1,9 +1,13 @@
-import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
+import { breakpoints } from '../../../hooks/useScreenWidth';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 250px auto;
+  grid-template-columns: auto;
+
+  ${breakpoints.greaterThan.tablet} {
+    grid-template-columns: 250px auto;
+  }
 `;
 
 export const DesktopMenu = styled.div``;
@@ -37,7 +41,8 @@ export const MenuItem = styled.div<{ selected: boolean }>`
 
 export const ContentContainer = styled.div`
   > img {
-    height: 90%;
+    height: 95%;
+    width: 100%;
     border-radius: 8px;
   }
 
@@ -46,5 +51,20 @@ export const ContentContainer = styled.div`
   justify-content: center;
   max-height: 530px;
   height: 530px;
-  padding: 8px;
+  padding-left: 8px;
+`;
+
+export const MobileContentContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 0;
+
+  > img {
+    height: 12px;
+    height: 90%;
+    width: 90%;
+    border-radius: 8px;
+  }
 `;

@@ -28,9 +28,24 @@ const MenuPage = () => {
             transition={{ delay: 0.2 }}
             exit={{ opacity: 0 }}>
             <div style={{ display: 'flex', gap: 16 }}>
-              <img src={linkedin} height={24} />
-              <img src={whatsapp} height={24} />
-              <img src={email} height={24} />
+              <a
+                href="https://www.linkedin.com/in/zpmedia"
+                target="_blank"
+                rel="noreferrer">
+                <img src={linkedin} height={24} alt="Linkedin" />
+              </a>
+              <a
+                href="https://api.whatsapp.com/send/?phone=5511982847260"
+                target="_blank"
+                rel="noreferrer">
+                <img src={whatsapp} height={24} alt="Whatsapp" />
+              </a>
+              <a
+                href="mailto:contact@zpmedia.com.br"
+                target="_blank"
+                rel="noreferrer">
+                <img src={email} height={24} alt="Email" />
+              </a>
             </div>
           </motion.div>
         </AnimatePresence>

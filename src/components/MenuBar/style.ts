@@ -15,6 +15,7 @@ export const Nav = styled.nav<{ isOpen: boolean }>`
   top: 0;
   right: 0;
   left: 0;
+  z-index: 999;
 
   ${props =>
     props.isOpen &&
