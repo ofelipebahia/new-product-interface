@@ -28,6 +28,7 @@ export default IndexPage;
 export const Head: HeadFC = () => (
   <>
     <title>Conecte-se com sua audiência | ZP Media</title>
+    <html lang="pt-BR" />
     <meta
       name="description"
       content="O futuro da mídia está na harmonia entre humanos e tecnologia. Construímos inventários para a sua marca com otimizações diárias na compra de mídia contextual dentro da programática garantida."

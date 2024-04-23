@@ -112,6 +112,10 @@ export const MenuBar = () => {
             }}>
             <img src={logo} alt="Logo" className="logo" height={35.7} />
             <Hamburger
+              label={isOpen ? 'Fechar menu' : 'Abrir menu'}
+              aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
+              aria-expanded={isOpen}
+              aria-haspopup="true"
               color={isOpen ? '#fff' : '#000'}
               hideOutline={false}
               onToggle={() => {

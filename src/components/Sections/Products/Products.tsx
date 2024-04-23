@@ -42,6 +42,7 @@ const DesktopLayout = ({
       {products.map(product => (
         <MenuItem
           selected={selected === product.id}
+          aria-label={product.name}
           onClick={e => {
             e.preventDefault();
             setSelected(product.id);
@@ -81,6 +82,7 @@ const MobileLayout = ({
         <React.Fragment key={product.id}>
           <MenuItem
             selected={selected === product.id}
+            aria-label={product.name}
             onClick={e => {
               e.preventDefault();
               setSelected(product.id);
