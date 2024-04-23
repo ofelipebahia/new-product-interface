@@ -30,6 +30,7 @@ export const MenuItem = styled.a.attrs({
   align-items: center;
   border-radius: 4px;
   margin: 4px;
+  margin-left: 0;
   transition: all 0.2s ease-in-out;
 
   ${props =>

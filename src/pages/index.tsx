@@ -6,7 +6,7 @@ import './../style.css';
 
 const pageStyles = {
   color: '#232129',
-  maxWidth: '1024px',
+  maxWidth: '1200px',
   margin: '0 auto',
   height: '100vh', // remove if needed
   padding: '32px 40px',

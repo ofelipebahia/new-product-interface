@@ -9,6 +9,7 @@ import {
 import { products } from './constants';
 import { motion } from 'framer-motion';
 import { useScreenWidth } from '../../../hooks/useScreenWidth';
+import { AnimatedTitle } from '../../AnimatedTitle/AnimatedTitle';
 
 type ProductItemProps = {
   selected: string;
@@ -124,15 +125,21 @@ export const Products = () => {
   } | null>(products[0]);
 
   return (
-    <Container>
-      {breakpoints.greaterThan.tablet
-        ? DesktopLayout({
-            selected,
-            setSelected,
-            setSelectedItem,
-            selectedItem,
-          })
-        : MobileLayout({ selected, setSelected, setSelectedItem })}
-    </Container>
+    <>
+      <AnimatedTitle>
+        Formatos de alta
+        <br /> performance
+      </AnimatedTitle>
+      <Container>
+        {breakpoints.greaterThan.tablet
+          ? DesktopLayout({
+              selected,
+              setSelected,
+              setSelectedItem,
+              selectedItem,
+            })
+          : MobileLayout({ selected, setSelected, setSelectedItem })}
+      </Container>
+    </>
   );
 };

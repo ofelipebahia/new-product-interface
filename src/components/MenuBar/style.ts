@@ -37,7 +37,7 @@ export const NavContainer = styled.div<{ isOpen: boolean }>`
   display: grid;
   grid-template-rows: auto;
   margin: 0 auto;
-  max-width: 1024px;
+  max-width: 1200px;
   padding: 32px 40px;
 
   .logo {
