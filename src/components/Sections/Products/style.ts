@@ -12,7 +12,17 @@ export const Container = styled.div`
 
 export const DesktopMenu = styled.div``;
 
-export const MenuItem = styled.div<{ selected: boolean }>`
+export const MenuItem = styled.a.attrs({
+  href: '#',
+})<{ selected: boolean }>`
+  /* remove all a tag styles */
+  color: inherit;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  /* remove any font styling */
+
   cursor: pointer;
   display: grid;
   grid-template-columns: min-content auto;

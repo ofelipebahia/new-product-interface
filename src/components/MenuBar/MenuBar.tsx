@@ -1,5 +1,4 @@
-import React from 'react';
-import Hamburger from 'hamburger-react';
+import React, { useEffect } from 'react';
 import {
   Nav,
   MenuPageContainer,
@@ -15,9 +14,12 @@ import email from '../../images/email.svg';
 import lgpdSelo from '../../images/lgpd-selo.png';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScreenWidth } from '../../hooks/useScreenWidth';
+import FocusTrap from 'focus-trap-react';
+import Hamburger from 'hamburger-react';
 
 const MenuPage = () => {
   const { breakpoints } = useScreenWidth();
+
   return (
     <MenuPageContainer>
       <PageImages>
@@ -77,7 +79,7 @@ const MenuPage = () => {
                 animate={{ opacity: 1, transform: 'translateX(0px)' }}
                 transition={{ delay: index * 0.1 }}
                 exit={{ opacity: 0 }}
-                key={index}>
+                key={item}>
                 {item}
               </ListOption>
             ))}
@@ -91,25 +93,36 @@ const MenuPage = () => {
 export const MenuBar = () => {
   const [isOpen, setOpen] = React.useState(false);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isOpen]);
+
   return (
     <Nav isOpen={isOpen}>
-      <NavContainer isOpen={isOpen}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-          }}>
-          <img src={logo} className="logo" height={35.7} />
-          <Hamburger
-            color={isOpen ? '#fff' : '#000'}
-            onToggle={() => {
-              setOpen(!isOpen);
-            }}
-          />
-        </div>
+      <FocusTrap active={isOpen}>
+        <NavContainer isOpen={isOpen}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+            }}>
+            <img src={logo} className="logo" height={35.7} />
+            <Hamburger
+              color={isOpen ? '#fff' : '#000'}
+              hideOutline={false}
+              onToggle={() => {
+                setOpen(!isOpen);
+              }}
+            />
+          </div>
 
-        {isOpen && <MenuPage />}
-      </NavContainer>
+          {isOpen && <MenuPage />}
+        </NavContainer>
+      </FocusTrap>
     </Nav>
   );
 };

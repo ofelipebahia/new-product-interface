@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 import { breakpoints } from '../../hooks/useScreenWidth';
+import Hamburger from 'hamburger-react';
 
 export const Nav = styled.nav<{ isOpen: boolean }>`
   background-color: ${props => (props.isOpen ? `#000` : `none`)};

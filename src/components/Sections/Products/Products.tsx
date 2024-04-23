@@ -39,15 +39,16 @@ const DesktopLayout = ({
 }: ProductItemProps) => (
   <>
     <DesktopMenu>
-      {products.map((product, index) => (
+      {products.map(product => (
         <MenuItem
           selected={selected === product.id}
-          onClick={() => {
+          onClick={e => {
+            e.preventDefault();
             setSelected(product.id);
             setSelectedItem(null);
             setTimeout(() => setSelectedItem(product), 200);
           }}
-          key={index}>
+          key={product.id}>
           {product.icon}
           <p>{product.name}</p>
         </MenuItem>
@@ -77,10 +78,11 @@ const MobileLayout = ({
   <>
     <DesktopMenu>
       {products.map((product, index) => (
-        <>
+        <React.Fragment key={product.id}>
           <MenuItem
             selected={selected === product.id}
-            onClick={() => {
+            onClick={e => {
+              e.preventDefault();
               setSelected(product.id);
               setSelectedItem(null);
               setTimeout(() => setSelectedItem(product), 200);
@@ -102,7 +104,7 @@ const MobileLayout = ({
               <MobileContentContainer>{product.content}</MobileContentContainer>
             </motion.div>
           )}
-        </>
+        </React.Fragment>
       ))}
     </DesktopMenu>
   </>
