@@ -25,4 +25,21 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => (
+  <>
+    <title>Conecte-se com sua audiência | ZP Media</title>
+    <meta
+      name="description"
+      content="O futuro da mídia está na harmonia entre humanos e tecnologia. Construímos inventários para a sua marca com otimizações diárias na compra de mídia contextual dentro da programática garantida."
+    />
+    <meta
+      content="Conecte-se com sua audiência | ZP Media"
+      property="og:title"
+    />
+    <meta
+      content="Conecte-se com sua audiência | ZP Media"
+      property="twitter:title"
+    />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+  </>
+);

@@ -110,7 +110,7 @@ export const MenuBar = () => {
               display: 'flex',
               justifyContent: 'space-between',
             }}>
-            <img src={logo} className="logo" height={35.7} />
+            <img src={logo} alt="Logo" className="logo" height={35.7} />
             <Hamburger
               color={isOpen ? '#fff' : '#000'}
               hideOutline={false}
