@@ -15,7 +15,16 @@ interface ScreenWidthHook {
 }
 
 export const useScreenWidth = (): ScreenWidthHook => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const getWindow = () =>
+    typeof window !== 'undefined'
+      ? window
+      : {
+          innerWidth: 0,
+          addEventListener: () => {},
+          removeEventListener: () => {},
+        };
+
+  const [screenWidth, setScreenWidth] = useState(getWindow().innerWidth);
   const breakpoints = useMemo(
     () => ({
       greaterThan: {
@@ -31,11 +40,11 @@ export const useScreenWidth = (): ScreenWidthHook => {
   );
 
   useEffect(() => {
-    const handleResize = () => setScreenWidth(window.innerWidth);
+    const handleResize = () => setScreenWidth(getWindow().innerWidth);
 
-    window.addEventListener('resize', handleResize);
+    getWindow().addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => getWindow().removeEventListener('resize', handleResize);
   }, []);
 
   return {
